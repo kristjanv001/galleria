@@ -1,0 +1,24 @@
+@use "sass:math";
+
+// colors
+$black: #000000;
+$gray: #7d7d7d;
+$lightGrayOne: #e5e5e5;
+$lightGrayTwo: #d8d8d8;
+$veryLightGray: #f3f3f3;
+$white: #ffffff;
+
+// breakpoints
+$m: 600px;
+$xm: 800px;
+$l: 1120px;
+
+$htmlFontSize: 14px;
+
+@function base($fontSize: $htmlFontSize) {
+  @return math.div($fontSize, $htmlFontSize) * 1rem;
+}
+
+$xPad: 24px;
+$xPadM: 40px;
+$xPadL: 40px;

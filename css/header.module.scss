@@ -1,0 +1,33 @@
+@import "./app.scss";
+@import "./variables.scss";
+
+.container {
+  @extend .container;
+  height: 80px;
+  border-bottom: 1px solid $lightGrayOne;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background-color: $white;
+
+  @media (min-width: $m) {
+    height: 90px;
+  }
+
+  @media (min-width: $l) {
+    height: 130px;
+    border-bottom: initial;
+  }
+}
+
+.wrapper {
+  @extend .wrapper;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (min-width: $l) {
+    border-bottom: 1px solid $lightGrayOne;
+  }
+}

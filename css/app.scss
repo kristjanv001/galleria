@@ -1,0 +1,101 @@
+@import "./variables.scss";
+
+.title {
+  font-size: base(24px);
+}
+
+.title1 {
+  @extend .title;
+  color: $white;
+  margin-bottom: base(0px);
+}
+
+.title2 {
+  @extend .title;
+  color: $black;
+}
+
+.title3 {
+  color: $black;
+}
+
+.author {
+  font-weight: normal;
+}
+
+.author1 {
+  @extend .author;
+  // font-size: base(14);
+  margin-top: 0;
+  color: $white;
+  mix-blend-mode: normal;
+  opacity: 0.75;
+}
+
+.author2 {
+  @extend .author;
+  // font-size: base(14);
+}
+
+.author3 {
+  @extend .author;
+  font-size: base(10px);
+}
+
+.link {
+  font-size: base(9px);
+  font-weight: 700;
+  letter-spacing: 1.93px;
+  text-transform: uppercase;
+  padding: 0.5em 0 0.5em 0.5em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  @media (min-width: $m) {
+    font-size: base(12px);
+    letter-spacing: 2.57px;
+  }
+
+  &:hover {
+    color: $black;
+  }
+}
+
+.link1 {
+  @extend .link;
+  letter-spacing: 1.93px;
+}
+
+.link2 {
+  @extend .link;
+  text-decoration: underline;
+}
+
+.display {
+  color: $veryLightGray;
+  font-size: base(100px);
+}
+
+.close {
+  letter-spacing: 3px;
+  color: $white;
+  text-transform: uppercase;
+}
+
+.container {
+  padding: 0 $xPad;
+  @media (min-width: $m) {
+    padding: 0 $xPadM;
+  }
+
+  @media (min-width: $l) {
+    padding: 0 $xPadL;
+  }
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+}
