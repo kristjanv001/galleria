@@ -1,8 +1,17 @@
+import { GetStaticProps } from 'next'
+import paintings from "../data.json"
 import { Header } from "../components/Header"
 import { MetaTags } from "../components/Metatags"
 import { Gallery } from "../components/Gallery"
 
-export default function Home() {
+
+export type Paintings = typeof paintings
+
+type HomePageProps = {
+  paintings: Paintings
+}
+
+export default function HomePage({ paintings }: HomePageProps) {
   return (
     <div>
       <MetaTags
@@ -11,8 +20,16 @@ export default function Home() {
       />
       <Header />
       <main >
-        <Gallery />
+        <Gallery paintings={paintings} />
       </main>
     </div>
   )
+}
+
+
+export const getStaticProps: GetStaticProps = async () => {
+
+  return {
+    props: { paintings }
+  }
 }

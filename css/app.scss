@@ -13,6 +13,8 @@
 .title2 {
   @extend .title;
   color: $black;
+  margin-top: 0;
+  margin-bottom: base(12px);
 }
 
 .title3 {
@@ -35,6 +37,7 @@
 .author2 {
   @extend .author;
   // font-size: base(14);
+  margin: 0;
 }
 
 .author3 {
@@ -74,6 +77,8 @@
 .display {
   color: $veryLightGray;
   font-size: base(100px);
+  margin: 0;
+  text-align: right;
 }
 
 .close {
@@ -84,6 +89,7 @@
 
 .container {
   padding: 0 $xPad;
+
   @media (min-width: $m) {
     padding: 0 $xPadM;
   }
@@ -98,4 +104,14 @@
   width: 100%;
   max-width: 1360px;
   margin: 0 auto;
+
+  margin-top: $xPad;
+
+  @media (min-width: $m) {
+    margin-top: $xPadM;
+  }
+
+  @media (min-width: $l) {
+    margin-top: $xPadL;
+  }
 }

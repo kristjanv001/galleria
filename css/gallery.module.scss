@@ -7,15 +7,6 @@
 
 .wrapper {
   @extend .wrapper;
-  margin-top: base(24px);
-
-  @media (min-width: $m) {
-    margin-top: base(35px);
-  }
-
-  @media (min-width: $l) {
-    margin-top: base(40px);
-  }
 }
 
 .imageBox {
@@ -73,7 +64,7 @@
 
 .masonryItem {
   @media (min-width: $m) {
-    display: inline-block;
+    // display: inline-block;
     margin: 0 0 1.5em;
     width: 100%;
   }

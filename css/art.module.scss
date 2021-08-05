@@ -1,0 +1,48 @@
+@import "./app.scss";
+@import "./variables.scss";
+
+.container {
+  @extend .container;
+}
+
+.wrapper {
+  @extend .wrapper;
+  border: 1px solid magenta;
+}
+
+.authorTitle {
+  border: 1px solid blue;
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: base(24px);
+  background-color: $white;
+  width: 85%;
+  margin-top: -4.5em;
+  position: relative;
+}
+
+.heroImage {
+  width: 100%;
+  object-fit: contain;
+}
+
+.artistImage {
+  height: 64px;
+  width: 64px;
+  margin-left: base(24px);
+}
+
+.info {
+  border: 1px solid green;
+  margin-top: -3.5em;
+}
+
+.descriptionContainer {
+  margin-bottom: base(44px);
+}
+
+.description {
+  margin-top: -2.8em;
+}
