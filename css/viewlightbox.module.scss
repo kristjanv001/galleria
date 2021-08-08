@@ -1,0 +1,77 @@
+@import "./app.scss";
+@import "./modal.module.scss";
+@import "./variables.scss";
+
+.button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  // z-index: 80;
+  min-height: 40px;
+  background-color: $black;
+  border: none;
+  outline: none;
+  color: $white;
+  font-family: "Libre Baskerville", serif;
+  font-size: base(10px);
+  letter-spacing: 2.14px;
+  font-weight: 700;
+  padding: 0 2em;
+  cursor: pointer;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+
+  @media (min-width: $m) {
+    top: 88%;
+    left: 5%;
+  }
+
+  @media (min-width: $xm) {
+    top: 90%;
+    left: 5%;
+  }
+
+  @media (min-width: $l) {
+    top: 90%;
+    left: 5%;
+  }
+
+  @media (min-width: $xl) {
+    top: 90%;
+  }
+
+  &:hover {
+    background-color: rgba(173, 173, 173, 0.562);
+  }
+
+  img {
+    width: 10px;
+    height: 10px;
+    margin-right: 1em;
+  }
+}
+
+.lightBoxModalContent {
+  @extend .modalContent;
+  @extend .container;
+
+  button {
+    float: right;
+    margin-bottom: base(28px);
+  }
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.lightBoxModalOverlay {
+  @extend .modalOverlay;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

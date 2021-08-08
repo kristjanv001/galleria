@@ -53,11 +53,11 @@
     column-gap: 2em;
   }
 
-  @media (min-width: $xm) {
+  @media (min-width: $l) {
     column-count: 3;
   }
 
-  @media (min-width: $l) {
+  @media (min-width: $xl) {
     column-count: 4;
   }
 }

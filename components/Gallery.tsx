@@ -3,6 +3,10 @@ import type { Paintings } from "../pages/index"
 import Link from "next/link"
 import slugify from "slugify"
 
+
+
+
+
 type GalleryProps = {
     paintings: Paintings
 }
@@ -27,6 +31,7 @@ export const Gallery = ({ paintings }: GalleryProps) => {
                                 </div>
                             </a>
                         </Link>
+
 
                     )
                 })}

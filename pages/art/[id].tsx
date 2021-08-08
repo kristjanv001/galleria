@@ -1,47 +1,24 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
+import type { GetStaticPaths, GetStaticProps } from 'next'
+import type { ArtPageProps } from "../../types"
 import { Art } from "../../components/Art";
 import { Header } from "../../components/Header"
 import { MetaTags } from "../../components/Metatags"
 import paintings from "../../data.json"
 import { getAllArtIds } from "../../lib/getAllArtIds";
 import { getArtData } from "../../lib/getArtData";
-
-
-export type ArtData = {
-  id: string,
-  name: string,
-  year: number,
-  description: string,
-  source: string,
-  artist: {
-    image: string,
-    name: string
-  },
-  images: {
-    thumbnail: string,
-    hero: {
-      small: string,
-      large: string
-    },
-    gallery: string
-  }
-}
-
-type ArtPageProps = {
-  artData: ArtData
-}
+import { FooterNav } from "../../components/FooterNav"
+import styles from "../../css/artpage.module.scss"
 
 export default function ArtPage({ artData }: ArtPageProps) {
   return (
-    <div>
+    <div className={styles.masterContainer}>
       <MetaTags
         title=""
         description=""
       />
       <Header />
-      <div >
-        <Art artData={artData} />
-      </div>
+      <Art artData={artData} />
+      <FooterNav artData={artData} />
     </div>
   )
 }

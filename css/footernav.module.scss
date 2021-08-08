@@ -1,0 +1,75 @@
+@import "./app.scss";
+@import "./variables.scss";
+
+.whole {
+  z-index: 90;
+  background-color: $white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+
+  @media (min-width: $l) {
+  }
+}
+
+.container {
+  //   border: 1px solid blue;
+  @extend .container;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  justify-self: center;
+  height: 100%;
+
+  @media (min-width: $m) {
+    min-height: 96px;
+  }
+}
+
+.wrapper {
+  //   border: 1px solid red;
+  @extend .wrapper;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progressBar {
+  justify-self: flex-start;
+  background-color: $lightGrayOne;
+}
+
+.progress {
+  height: 2px;
+  width: 40%;
+  background-color: $black;
+}
+
+.iconNav {
+  display: flex;
+}
+
+.next,
+.back {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.next {
+  margin-left: base(28px);
+}
+
+.grayArrow {
+  cursor: not-allowed;
+
+  path {
+    stroke: $lightGrayTwo;
+  }
+}

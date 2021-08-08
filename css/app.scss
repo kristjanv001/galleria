@@ -1,5 +1,7 @@
 @import "./variables.scss";
 
+// 14, 21, 28, 35, 42, 49, 56, 63
+
 .title {
   font-size: base(24px);
 }
@@ -14,11 +16,35 @@
   @extend .title;
   color: $black;
   margin-top: 0;
-  margin-bottom: base(12px);
+  margin-bottom: base(7px);
+
+  @media (min-width: $m) {
+    font-size: base(35px);
+  }
+
+  @media (min-width: $xm) {
+    font-size: base(56px);
+  }
+
+  @media (min-width: $l) {
+    font-size: base(42px);
+  }
+
+  @media (min-width: $xl) {
+    font-size: base(56px);
+  }
 }
 
 .title3 {
+  @extend .title;
   color: $black;
+  font-size: base(14px);
+  margin-top: 0;
+  margin-bottom: base(7px);
+
+  @media (min-width: $m) {
+    font-size: base(18px);
+  }
 }
 
 .author {
@@ -43,6 +69,11 @@
 .author3 {
   @extend .author;
   font-size: base(10px);
+  margin: 0;
+
+  @media (min-width: $m) {
+    font-size: base(14px);
+  }
 }
 
 .link {
@@ -53,6 +84,8 @@
   padding: 0.5em 0 0.5em 0.5em;
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
+  color: $gray;
 
   @media (min-width: $m) {
     font-size: base(12px);
@@ -79,12 +112,30 @@
   font-size: base(100px);
   margin: 0;
   text-align: right;
+
+  @media (min-width: $m) {
+    text-align: left;
+    font-size: base(200px);
+  }
+
+  @media (min-width: $l) {
+    text-align: right;
+  }
 }
 
 .close {
   letter-spacing: 3px;
   color: $white;
   text-transform: uppercase;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: "Libre Baskerville", serif;
+  cursor: pointer;
+  padding: 0.5em 0 0.5em 0.5em;
+  font-weight: 700;
+  font-size: (14px);
+  letter-spacing: 3px;
 }
 
 .container {
@@ -103,15 +154,13 @@
   height: 100%;
   width: 100%;
   max-width: 1360px;
-  margin: 0 auto;
-
-  margin-top: $xPad;
+  margin: $xPad auto;
 
   @media (min-width: $m) {
-    margin-top: $xPadM;
+    margin: $xPadM auto;
   }
 
   @media (min-width: $l) {
-    margin-top: $xPadL;
+    margin: $xPadL auto;
   }
 }

@@ -20,6 +20,11 @@ body {
   font-family: "Libre Baskerville", serif;
   font-weight: 700;
   line-height: 2;
+  min-height: 100vh;
+
+  &.lockscroll {
+    overflow: hidden;
+  }
 }
 
 p,
