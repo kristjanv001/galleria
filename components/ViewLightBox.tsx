@@ -1,7 +1,10 @@
-import type { ViewLightBoxProps } from "../types"
 import styles from "../css/viewlightbox.module.scss"
 import ReactModal from 'react-modal';
 import { useState, useEffect } from "react"
+
+type ViewLightBoxProps = {
+    image: string
+}
 
 export const ViewLightBox = ({ image }: ViewLightBoxProps) => {
     const [isOpen, setIsOpen] = useState(false)
@@ -29,6 +32,7 @@ export const ViewLightBox = ({ image }: ViewLightBoxProps) => {
                 closeTimeoutMS={0}
                 preventScroll={false}
                 onRequestClose={() => setIsOpen(false)}
+                appElement={process.browser && document.getElementById('body') || undefined}
             >
                 <button className={styles.close} onClick={() => setIsOpen(false)}>Close</button>
                 <img src={image} />

@@ -2,7 +2,6 @@ import paintings from "./data.json"
 
 export type Paintings = typeof paintings
 
-
 export type ArtData = {
     id: string,
     name: string,
@@ -23,18 +22,3 @@ export type ArtData = {
     }
 }
 
-export type ArtPageProps = {
-    artData: ArtData
-}
-
-export type FooterNavProps = {
-    artData: ArtData
-}
-
-export type ArtProps = {
-    artData: ArtData
-}
-
-export type ViewLightBoxProps = {
-    image: string
-}

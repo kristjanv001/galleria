@@ -1,60 +1,73 @@
-import type { FooterNavProps } from "../types"
+import type { ArtData } from "../types"
 import styles from "../css/footernav.module.scss"
 import Link from "next/link"
-import paintings from "../data.json"
 import slugify from "slugify"
 import { ProgressBar } from "./ProgressBar"
 import { ArrowNext, ArrowBack } from "./Arrows"
-import { getProgress } from "../lib/getProgress"
-import { getAdjacentArt } from "../lib/getAdjacentArt"
+import { usePaintingsProgress } from "../lib/usePaintingsProgress"
+import { useAdjacentArt } from "../lib/useAdjacentArt"
 
+type FooterNavProps = {
+    artData: ArtData
+}
 
 export const FooterNav = ({ artData }: FooterNavProps) => {
 
     const { name, artist } = artData
+    const currentSlug = slugify(name, { lower: true })
 
-    const adjacentSlugs = getAdjacentArt(paintings, name)
-    const percent = getProgress(paintings, name)
+    const paintingsProgress = usePaintingsProgress()
+    const adjacentArt = useAdjacentArt()
 
     return (
-        <div className={styles.whole}>
+        <div>
+            {adjacentArt && paintingsProgress && (
+                <div className={styles.whole}>
+                    <ProgressBar percent={paintingsProgress[currentSlug]} />
+                    <div className={styles.container}>
 
-            <ProgressBar percent={percent} />
-            <div className={styles.container}>
+                        <div className={styles.wrapper}>
 
-                <div className={styles.wrapper}>
+                            <div>
+                                <h2 className={styles.title3}>{name}</h2>
+                                <p className={styles.author3}>{artist.name}</p>
+                            </div>
 
-                    <div>
-                        <h2 className={styles.title3}>{name}</h2>
-                        <p className={styles.author3}>{artist.name}</p>
+                            <div className={styles.iconNav}>
+
+                                {/* PREV */}
+                                <Link
+
+                                    scroll={false}
+                                    href={adjacentArt[currentSlug].prev ? `/art/${adjacentArt[currentSlug].prev}` : `/art/${currentSlug}`}
+                                >
+                                    <a>
+                                        <div className={`${styles.back} ${!adjacentArt[currentSlug].prev ? styles.grayArrow : undefined}`}>
+                                            <ArrowBack />
+                                        </div>
+                                    </a>
+                                </Link>
+
+
+                                {/* NEXT */}
+                                <Link
+
+                                    scroll={false}
+                                    href={adjacentArt[currentSlug].next ? `/art/${adjacentArt[currentSlug].next}` : `/art/${currentSlug}`}>
+                                    <a>
+                                        <div className={`${styles.next} ${!adjacentArt[currentSlug].next ? styles.grayArrow : undefined}`}>
+                                            <ArrowNext />
+                                        </div>
+                                    </a>
+                                </Link>
+
+                            </div>
+                        </div>
+
                     </div>
+                </div>)}
 
-                    <div className={styles.iconNav}>
 
-                        <Link
-                            scroll={false}
-                            href={adjacentSlugs.previous ? `/art/${adjacentSlugs.previous}` : `/art/${slugify(name, { lower: true })}`}>
-                            <a>
-                                <div className={`${styles.back} ${!adjacentSlugs.previous ? styles.grayArrow : undefined}`}>
-                                    <ArrowBack />
-                                </div>
-                            </a>
-                        </Link>
-
-                        <Link
-                            scroll={false}
-                            href={adjacentSlugs.next ? `/art/${adjacentSlugs.next}` : `/art/${slugify(name, { lower: true })}`}>
-                            <a>
-                                <div className={`${styles.next} ${!adjacentSlugs.next ? styles.grayArrow : undefined}`}>
-                                    <ArrowNext />
-                                </div>
-                            </a>
-                        </Link>
-
-                    </div>
-                </div>
-
-            </div>
         </div>
     )
 }

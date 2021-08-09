@@ -3,13 +3,14 @@ import paintings from "../data.json"
 import { Header } from "../components/Header"
 import { MetaTags } from "../components/Metatags"
 import { Gallery } from "../components/Gallery"
-
+import { motion } from "framer-motion";
 
 export type Paintings = typeof paintings
 
 type HomePageProps = {
   paintings: Paintings
 }
+
 
 export default function HomePage({ paintings }: HomePageProps) {
   return (
@@ -18,10 +19,19 @@ export default function HomePage({ paintings }: HomePageProps) {
         title="Galleria"
         description="Art gallery slideshow site challenge from Frontendmentor"
       />
-      <Header />
-      <main >
-        <Gallery paintings={paintings} />
-      </main>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: .5 }}
+
+      >
+
+        <Header />
+        <main >
+          <Gallery paintings={paintings} />
+        </main>
+      </motion.div>
     </div>
   )
 }

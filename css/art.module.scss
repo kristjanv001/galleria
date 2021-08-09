@@ -4,6 +4,7 @@
 .artContainer {
   flex: 1 0 auto;
   margin-bottom: 4em;
+  transition: all 4.2s ease;
 
   @media (min-width: $xl) {
     margin-bottom: 14em;
@@ -36,6 +37,7 @@
 }
 
 .authorTitle {
+  // border: 1px solid red;
   background-color: $white;
   min-height: 104px;
   display: flex;
@@ -77,12 +79,12 @@
   position: relative;
 
   .heroImage {
+    position: relative;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
 
     @media (min-width: $l) {
-      object-fit: cover;
       height: 100%;
     }
   }
@@ -102,11 +104,11 @@
 }
 
 .artistImage {
+  position: relative;
   height: 64px;
   width: 64px;
   margin-left: base(24px);
   z-index: 2;
-  position: relative;
 
   @media (min-width: $m) {
     margin-left: 0;
@@ -114,12 +116,10 @@
     width: 128px;
     grid-row: 1;
     grid-column: 12/13;
-    position: relative;
     align-self: flex-end;
   }
 
   @media (min-width: $l) {
-    grid-row: 1;
     grid-column: 7;
     margin-left: base(28px);
     margin-right: base(28px);
