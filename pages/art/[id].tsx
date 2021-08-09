@@ -8,10 +8,6 @@ import { getAllArtIds } from "../../lib/getAllArtIds";
 import { getArtData } from "../../lib/getArtData";
 import { FooterNav } from "../../components/FooterNav"
 import styles from "../../css/artpage.module.scss"
-import { motion, AnimatePresence } from "framer-motion"
-import { useRouter } from 'next/router'
-
-
 
 
 type ArtPageProps = {
@@ -19,17 +15,7 @@ type ArtPageProps = {
 }
 
 
-const variants = {
-  hidden: { opacity: 1, x: 0, y: 0 },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: { opacity: 1, x: 0, y: 0 },
-}
-
-
 export default function ArtPage({ artData }: ArtPageProps) {
-
-  const router = useRouter()
-
 
   return (
     <div className={styles.masterContainer}>
@@ -40,26 +26,7 @@ export default function ArtPage({ artData }: ArtPageProps) {
       />
 
       <Header />
-
-      <AnimatePresence exitBeforeEnter>
-        <motion.div
-        // transition={{ duration: .6 }}
-        // key={artData.id}
-        // key={router.asPath}
-        // variants={variants}
-        // initial="hidden"
-        // animate="enter"
-        // exit="exit"
-        // transition={{
-        //   x: { type: "spring" },
-        //   // opacity: { duration: 0.3 }
-        // }}
-        >
-          <Art artData={artData} />
-        </motion.div>
-      </AnimatePresence>
-
-
+      <Art artData={artData} />
       <FooterNav artData={artData} />
 
     </div>
