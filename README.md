@@ -14,4 +14,4 @@ This is an art gallery app.
 
 ## 🌎 Demo
 
-https://galleria2021.vercel.app/
+https://famousgalleria.vercel.app/
