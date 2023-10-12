@@ -19,17 +19,17 @@ export const Header = () => {
         <div className={styles.container}>
             <div className={styles.wrapper}>
                 <Link href="/">
-                    <a>
+                    
                         <img
                             className={styles.logo}
                             src="/assets/shared/logo.svg"
                         />
-                    </a>
+                   
                 </Link>
                 <Link href={isSlideShow ? "/" : `/art/${slugify(paintings[0].name, { lower: true })}`}>
-                    <a className={styles.link1}>
+                    <p className={styles.link1}>
                         {isSlideShow ? "stop slideshow" : "start slideshow"}
-                    </a>
+                    </p>
 
                 </Link>
             </div>
